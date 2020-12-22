@@ -9,11 +9,12 @@ import { withRouter } from 'react-router-dom';
 import { incrementCounter, decrementCounter } from '../../store/actions';
 
 function Main(props) {
+	const { counter, incrementCounter, decrementCounter } = props
 	return (
 		<div>
-			<p>{props.counter.count}</p>
-			<button onClick={() => props.incrementCounter()}>Increment</button>
-			<button onClick={() => props.decrementCounter()}>Decrement</button>
+			<p>{counter.count}</p>
+			<button onClick={() => incrementCounter()}>Increment</button>
+			<button onClick={() => decrementCounter()}>Decrement</button>
 		</div>
 	);
 }
@@ -22,9 +23,9 @@ const mapStateToProps = (state) => ({
 	counter: state.counter
 });
 
-const mapDispatchToProps = (dispatch) => ({
-	incrementCounter: () => dispatch(incrementCounter()),
-	decrementCounter: () => dispatch(decrementCounter())
-});
+const mapDispatchToProps = {
+	incrementCounter,
+	decrementCounter
+};
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Main));
