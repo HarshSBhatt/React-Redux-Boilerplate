@@ -1,11 +1,11 @@
 //! Built-in or Third Party Packages
 
-import { combineReducers } from 'redux';
+import { combineReducers } from "redux";
 
 //! User Files
 
-import { Counter } from './counter';
+import { Counter } from "./counter";
 
 export default combineReducers({
-	counter: Counter
+  counter: Counter,
 });
